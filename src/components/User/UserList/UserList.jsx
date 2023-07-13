@@ -44,7 +44,7 @@ function UserList() {
         <>
           {users && users.length === 0 ? (
             <Typography variant="h4" align="center">
-              Users not found
+              User not found
             </Typography>
           ) : (
             <TableContainer component={Paper}>

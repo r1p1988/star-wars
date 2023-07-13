@@ -1,4 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+const UserURL = `https://swapi.dev/api/people`;
+const UserSearchURL = `https://swapi.dev/api/people`;
 
 const initialState = {
   loading: false,
@@ -8,14 +10,14 @@ const initialState = {
 };
 
 export const fetchUsers = createAsyncThunk("users/fetch", async () => {
-  const response = await fetch("https://swapi.dev/api/people")
+  const response = await fetch(UserURL)
     .then((data) => data.json())
     .then((data) => data.results);
   return response;
 });
 
 export const filterUsers = createAsyncThunk("users/fetch", async (user) => {
-  const response = await fetch(`https://swapi.dev/api/people/?search=${user}`)
+  const response = await fetch(UserSearchURL + `/?search=${user}`)
     .then((data) => data.json())
     .then((data) => data.results);
   return response;
